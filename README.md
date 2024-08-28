@@ -19,7 +19,7 @@ RouterOS built-in scripting language has some nuances:
 - "Every variable must be declared before usage by local or global keywords";
 - "Whitespace characters are not allowed
     between ```<parameter>=``` ```from=``` ```to=``` ```step=``` ```in=``` ```do=``` ```else=```";
-Script is a siple txt file, but for executing must have ```rsc`` extension.
+Script is a siple txt file, but for executing must have ```rsc``` extension.
 VSCode has few extensions for RouterOS script language.
 
 ## Sending to the router

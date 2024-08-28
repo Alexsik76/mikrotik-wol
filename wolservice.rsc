@@ -10,7 +10,7 @@
             :put "$targetHostName alredy bound" 
             } else={
             :put "Try to wake on $targetHostName";
-            :tool wol mac=$leaserMac;
+            :tool wol interface=bridge mac=$leaserMac;
             }; 
 } on-error={ 
     :log error "Failed to complete WOL on $targetHostName";
