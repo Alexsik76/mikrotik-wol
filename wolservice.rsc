@@ -6,20 +6,13 @@
     :local targetLeaser [/ip/dhcp-server/lease/ get [find host-name=$targetHostName]];
     :local leaserStatus ($targetLeaser->"status");
     :local leaserMac ($targetLeaser->"mac-address");
-    :if ($leaserStatus="bound") \
-        do={ 
-        :put "$targetHostName alredy bound"; 
-        :log info "$targetHostName alredy bound"; 
-        } \
-        else={
-            :put "Try to wake on $targetHostName by $leaserMac";
-            :tool wol interface=bridge mac=$leaserMac;
-            :log info "First try to wake on $targetHostName"; 
-            };
+    :put "Try to wake on $targetHostName by $leaserMac";
+    :tool wol interface=bridge mac=$leaserMac;
+    :log info "First try to wake on $targetHostName"; 
     :delay 120;
     :if ($leaserStatus!="bound") \
         do={
-        :put "Retry to wake on $targetHostName by $leaserMac";
+        :put "Try to wake on $targetHostName by $leaserMac";
         :tool wol interface=bridge mac=$leaserMac;
         :log info "Retry to wake on $targetHostName"; 
         };
